@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Main
+class Game
+class FileIO
+class TextUI
+class Player
+class BankAccount
+
+Main : private static Game game
+Main : public static void main()
+
+Game : private File fileIO;
+Game : private TextUI textUI;
+Game : ArrayList<Player> players
+Game : gameSetup()
+Game : createPlayers(ArrayList<String> data)
+
+FileIO : readGameData()
+
+TextUI : public String getUserInput(String msg)
+TextUI : public int getUserInput(String msg, ArrayList<String> options)
+TextUI : public ArrayList<String> getUserInput(String msg, int iterations)
+
+Player : Player(String name, int amount)
+Player : private String name
+Player : private int amount
+
+Main *-- Game
+Game *-- FileIO
+Game *-- TextUI
+Game *-- Player
+
+Player *-- BankAccount
+Player : String getName
+Player : public void setName(String name)
+Player : public int getAmount()
+Player : public void setAmount(int amount)
+Player : public String toString()
+
+@enduml
