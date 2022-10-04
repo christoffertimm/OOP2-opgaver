@@ -18,4 +18,3 @@ hs_err_pid*
 *.iws
 out/
 .idea_modules/
-Documentation/classdiagram_v1.1.puml

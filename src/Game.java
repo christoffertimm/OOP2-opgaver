@@ -16,6 +16,14 @@ public class Game {
             data = textUI.getUserInput("Skriv spillernavn. Tast Q for at quitte",6);
         }
         this.createPlayers(data);
+
+        players.get(0).buy(2000);
+        FileIO.writeGameData(players);
+
+        //**********************
+        // Load af felt data
+        // **********************
+
     }
 
     private void createPlayers(ArrayList<String> data){
