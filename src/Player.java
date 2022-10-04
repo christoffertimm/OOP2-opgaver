@@ -1,12 +1,12 @@
 
 
 public class Player {
-    String name;
-    int amount;
+    private String name;
+    private BankAccount account;
 
     public Player(String name, int amount) {
         this.name = name;
-        this.amount = amount;
+        account = new BankAccount(amount);
     }
 
     public String getName() {
@@ -18,18 +18,19 @@ public class Player {
     }
 
     public int getAmount() {
-        return amount;
+        return account.getBalance();
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
 
     @Override
     public String toString() {
-        return "Player: " +'\n'+
-                "name:'" + name + '\'' +
-                ", amount=" + amount +
-                '}';
+        return name +":"+ account;
+
     }
+
+    public void buy(int cost){
+
+        this.account.doTransaction(-cost);
+    }
+
 }

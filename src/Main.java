@@ -4,6 +4,14 @@ public class Main {
 	// write your code here
         game.gameSetup();
         game.displayPlayers();
+
+        //lav lidt om på en player
+        //
+
+
+
     }
+
+
 
 }
