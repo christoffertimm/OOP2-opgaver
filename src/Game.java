@@ -5,7 +5,7 @@ public class Game {
     private FileIO fileIO = new FileIO();
     private TextUI textUI = new TextUI();
     private ArrayList<Player> players = new ArrayList();
-
+    private Board board;
 
     public void gameSetup() {
         //**********************
@@ -16,17 +16,35 @@ public class Game {
             data = textUI.getUserInput("Skriv spillernavn. Tast Q for at quitte",6);
         }
         this.createPlayers(data);
+        //players.get(0).buy(4000);
+        //FileIO.writeGameData(players);
 
-       
         //**********************
-        // Load af felt data
+        // Load af felt data og bygge boardet
         // **********************
+         String[] fieldData = fileIO.readBoardData();
+         board = new Board(fieldData);
+
+
+        System.out.println(board.getField(1));
+        runGame();
+
+    }
+    private void runGame(){
+        Player currentPlayer = players.get(0);
+        System.out.println("Current player position: "+currentPlayer.getPosition());
+        int result = Dice.rollDiceSum();
+        int newPos = currentPlayer.updatePos(result);
+        System.out.println("Current player NEW position: "+currentPlayer.getPosition());
+        Field f = board.getField(newPos);
+        String msg = f.onLand();
+        System.out.println(msg);
 
     }
 
     private void createPlayers(ArrayList<String> data){
         for (String s : data) {
-            String[] values = s.split(", "); //split arrayet så vi får adskildt de to værdier
+            String[] values = s.replaceAll(" ","").split(","); //split arrayet så vi får adskildt de to værdier
             int balance;
 
             if (values.length > 1) {

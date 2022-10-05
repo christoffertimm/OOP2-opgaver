@@ -28,10 +28,10 @@ public class FileIO {
 
     public static void writeGameData(ArrayList<Player> players) {
         try {
-            FileWriter writer = new FileWriter("gamedata.csv");
+            FileWriter writer = new FileWriter("Data/gamedata.csv");
+            writer.write( "name, amount\n");
 
             for (Player p : players) {
-
                 writer.write(p.getName() + "," + p.getAmount()+"\n");
             }
             writer.close();
@@ -39,6 +39,24 @@ public class FileIO {
             System.out.println(e);
         }
     }
+
+    public String[] readBoardData(){
+        String[] values = new String[40];
+        String header;
+        try {
+            Scanner scan = new Scanner(new File("data/boarddata.csv"));
+            header = scan.nextLine();
+            for (int i = 0; i < values.length; i++){
+                String s = scan.nextLine();
+                values[i] = s;
+            }
+        } catch (FileNotFoundException e){
+            System.out.println(e);
+        }
+        return values;
+    }
+
+
 }
 
 

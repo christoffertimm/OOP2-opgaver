@@ -1,4 +1,4 @@
-name,balance
-Egon, 2000
-Benny, 4400
-Kjeld, 33
+name, amount
+Egon,-5000
+Benny,4000
+Kjeld,30000

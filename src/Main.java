@@ -3,7 +3,7 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
         game.gameSetup();
-        game.displayPlayers();
+     //   game.displayPlayers();
 
         //lav lidt om på en player
         //
