@@ -35,11 +35,13 @@ TextUI : - Scanner scan
 
 Player : + Player(String name, int amount)
 Player : - String name
+Player : - int position
 Player : + String getName()
 Player : + void setName(String name)
 Player : + void buy(int cost)
 Player : + int getAmount()
 Player : + String toString()
+Player : + void updatePosition()
 
 BankAccount : -int balance
 BankAccount : +BankAccount(int startAmount)

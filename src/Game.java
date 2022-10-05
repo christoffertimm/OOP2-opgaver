@@ -17,9 +17,7 @@ public class Game {
         }
         this.createPlayers(data);
 
-        players.get(0).buy(2000);
-        FileIO.writeGameData(players);
-
+       
         //**********************
         // Load af felt data
         // **********************
