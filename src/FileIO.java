@@ -32,7 +32,7 @@ public class FileIO {
             writer.write( "name, amount\n");
 
             for (Player p : players) {
-                writer.write(p.getName() + "," + p.getAmount()+"\n");
+                writer.write(p.getName() + "," + p.getBalance()+"\n");
             }
             writer.close();
         } catch (IOException e) {

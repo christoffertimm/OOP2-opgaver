@@ -19,8 +19,11 @@ Game : - File fileIO;
 Game : - TextUI textUI;
 Game : - ArrayList<Player> players
 Game : + void gameSetup()
-
 Game : - void createPlayers(ArrayList<String> data)
+Game : + displayPlayers()
+Game : + void runGame()
+Game : - throwAndMove(Player p)
+Game : - landAndAct(Player p, Field f)
 
 FileIO : + ArrayList<String> readGameData()
 FileIO : + void writeGameData(ArrayList<Player> players)
@@ -49,14 +52,40 @@ BankAccount : +void doTransaction(int amount)
 BankAccount : +int getBalance()
 BankAccount : +String toString()
 
-Field : + Field(ID, label, cost, income, seriesID, owner)
+Field : + Field(ID, label, cost, income)
 Field : - String label
 Field : - int ID
 Field : - int cost
 Field : - int income
-Field : - int seriesID
-Field : - Player owner
+
 Field : + String toString()
+Field : + String onLand()
+Field : + String processResponse()
+Field : # String onAccept()
+Field : # String onReject()
+
+Property : - int seriesID
+Property : - Player owner
+Property : + String onLand()
+Property : - String onAccept()
+Property : - String onReject()
+
+Plot : + String onLand()
+Plot : - String onAccept()
+Plot : - String onReject()
+
+Business : + String onLand()
+Business : - String onAccept()
+Business : - String onReject()
+
+Tax : + String onLand()
+Tax : - String onAccept()
+Tax : - String onReject()
+
+Field <|-- Tax
+Field <|-- Property
+Property <|-- Plot
+Property <|-- Business
 
 Dice : + int rollDice()
 Dice : - boolean isDouble()
@@ -65,7 +94,7 @@ Board : - Field[] fields
 Board : + Board(String [] data)
 Board : - void createFields(String [] data)
 Board : + Field getField(int id)
-Board *-- Dice
+Game *-- Dice
 Main *-- Game : has-a
 Game *-- FileIO : has-a
 Game *-- TextUI : has-a
@@ -76,4 +105,3 @@ Board *-- "40" Field
 
 
 @enduml
-

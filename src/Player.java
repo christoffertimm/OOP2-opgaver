@@ -22,7 +22,7 @@ public class Player {
         this.name = name;
     }
 
-    public int getAmount() {
+    public int getBalance() {
         return account.getBalance();
     }
 

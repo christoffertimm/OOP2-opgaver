@@ -22,14 +22,20 @@ public class Game {
         //**********************
         // Load af felt data og bygge boardet
         // **********************
-         String[] fieldData = fileIO.readBoardData();
-         board = new Board(fieldData);
-
-
+        String[] fieldData = fileIO.readBoardData();
+        board = new Board(fieldData);
         System.out.println(board.getField(1));
         runGame();
 
     }
+    /* TODO: Increase modularity for readability in this class by...
+        1. moving the code that rolls the dice and moves the player to a method called throwAndMove()
+        2. moving the code that calls the onLand method to a method called landAndAct()
+        3. limit the code in runGame to run a game loop, where..
+        3.a the next player is found
+        3.b the user is prompted to either continue or quit the game
+    *
+    * */
     private void runGame(){
         Player currentPlayer = players.get(0);
         System.out.println("Current player position: "+currentPlayer.getPosition());
