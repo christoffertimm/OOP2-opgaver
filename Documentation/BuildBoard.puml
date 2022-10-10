@@ -3,11 +3,10 @@
 
 autonumber
 
-Game -> FileIO: readFileData()
-FileIO --> Game: String[] data
+Game -> FileIO: String[] data = readBoardData()
+
 Game -> Board : new(data)
 Board -> Board : createFields()
+Board -> Field : new()
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
 @enduml

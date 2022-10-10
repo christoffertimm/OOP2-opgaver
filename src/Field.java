@@ -7,28 +7,50 @@
 public class Field {
     private int ID;
     private String label;
-    private int cost;
+    protected int cost;
     private int income;
-    private int seriesID;
-    private Player owner;
 
-    public  Field(int ID, String label, int cost, int income, int seriesID, Player owner){
+
+
+    public  Field(int ID, String label, int cost, int income){
         this.ID = ID;
         this.label = label;
         this.cost = cost;
         this.income = income;
-        this.seriesID = seriesID;
-        this.owner = owner;
-
     }
 
     @Override
     public String toString() {
-        return ID + "" + label;
+        return ID + ": " + label;
     }
 
-    public String onLand(){
-        return "du er landet på: " + ID + label;
+
+    public String onLand(Player p){
+        String s = p.getName()+ " er landet på " + this;
+
+        return s;
     }
+
+    protected String getLabel(){
+        return this.label;
+    }
+
+    public void processChoice(String choice, Player p) {
+        if(choice.equalsIgnoreCase("J")){
+            onAccept(p);
+
+        }else{
+            onReject(p);
+
+        }
+
+    }
+    protected String onAccept(Player p){
+        return "";
+    }
+    protected String onReject(Player p){
+        return "";
+    }
+
 
 }

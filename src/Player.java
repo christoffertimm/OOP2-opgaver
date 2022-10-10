@@ -1,8 +1,6 @@
 public class Player {
     private String name;
     private BankAccount account;
-
-
     private int startPosition = 1;
     private int currentPosition = startPosition;
 
@@ -37,11 +35,13 @@ public class Player {
 
         this.account.doTransaction(-cost);
     }
+
     public int updatePos(int sum){
 
-
-        currentPosition = currentPosition + sum;
-
+        currentPosition = currentPosition + sum;//52
+        if(currentPosition >40){
+            currentPosition -= 40;//currentPosition = currentPosition -40
+        }
         return currentPosition;
     }
 

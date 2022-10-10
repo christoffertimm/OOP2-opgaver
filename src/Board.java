@@ -22,7 +22,28 @@ public class Board {
             *
             */
 
-            Field f = new Field(Integer.parseInt(values[0]), values[2], Integer.parseInt(values[3]), Integer.parseInt(values[4]), Integer.parseInt(values[5]), null);
+            int id =  Integer.parseInt(values[0]);
+            String fieldtype = values[1];
+            String label = values[2];
+            int cost = Integer.parseInt(values[3]);
+            int income = Integer.parseInt(values[4]);
+            int seriesID = Integer.parseInt(values[5]);
+
+            Field f;
+
+            switch (fieldtype) {
+                case "plot": f = new Plot(id, label, cost, income, seriesID);
+
+                break;
+                case "lykkefelt": f = new Chance(id, label,cost, income);
+
+                    break;
+                default: f = new Field(id, label, cost, income);
+            }
+
+
+
+
             fields[i] = f;
         }
         return fields;

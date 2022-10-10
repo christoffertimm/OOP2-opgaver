@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:land on field;
+:retrieve options from the field;
+if (option) then (prompt user);
+
+if (accept) then (do action)
+:show final msg;
+
+stop
+
+@enduml
