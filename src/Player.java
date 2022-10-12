@@ -3,7 +3,7 @@ public class Player {
     private BankAccount account;
     private int startPosition = 1;
     private int currentPosition = startPosition;
-
+/*TODO: tilføj en liste til at holde på det spilleren har købt (jvf. Task 1.c)*/
 
     public Player(String name, int amount) {
         this.name = name;
@@ -30,9 +30,9 @@ public class Player {
         return name +":"+ account;
 
     }
-
+/*TODO: udvid metoden sådan at den tager en instans af type Property. Denne instans skal lægges i deeds */
     public void buy(int cost){
-        //add deed to deedlist
+        //add deed to deeds
         this.account.doTransaction(-cost);
     }
 
@@ -53,7 +53,13 @@ public class Player {
         return currentPosition;
     }
 
-    public void pay(int cost) {
-        this.account.doTransaction(-cost);
+
+    public void pay(int amount) {
+        this.account.doTransaction(-amount);
+    }
+
+    public void pay(int amount, Player p) {
+        this.account.doTransaction(-amount);
+        p.account.doTransaction(amount);
     }
 }

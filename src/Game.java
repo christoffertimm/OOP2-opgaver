@@ -7,6 +7,7 @@ public class Game {
     private ArrayList<Player> players = new ArrayList();
     private Board board;
     private Player currentPlayer;
+
     public void gameSetup() {
         //**********************
         // Load af spiller data
@@ -19,8 +20,22 @@ public class Game {
         //**********************
         // Load af felt data og bygge boardet
         // **********************
+
         String[] fieldData = fileIO.readBoardData();
+
+        /*TODO: tilføj en linie der minder om den lige oven over.
+           Her skal der dog loades Chance-kort data istedet for felt data (jvf. Task 2.d)
+         * */
+
+
+
+        /*TODO: ændr dette konstruktor kald til Board, sådan at  Chance-kort data kommer med som argument (jvf. Task 2.d) */
         board = new Board(fieldData);
+
+
+
+
+
 
 
         runGame();
@@ -30,14 +45,7 @@ public class Game {
     public void saveGame(){
         FileIO.writeGameData(players);
     }
-    /* TODO: Increase modularity for readability in this class by...
-        1. moving the code that rolls the dice and moves the player to a method called throwAndMove()
-        2. moving the code that calls the onLand method to a method called landAndAct()
-        3. limit the code in runGame to run a game loop, where..
-        3.a the next player is found
-        3.b the user is prompted to either continue or quit the game
-    *
-    * */
+
     private void runGame(){
 
         String input = "";
@@ -58,28 +66,30 @@ public class Game {
     }
     private void throwAndMove(){
 
-        System.out.println("Det er "+currentPlayer.getName()+"'s tur. \n"+currentPlayer.getName()+ "står på felt "+currentPlayer.getPosition() );
+        System.out.println("Det er "+currentPlayer.getName()+"'s tur. \n"
+                +currentPlayer
+                + "står på felt "
+                +currentPlayer.getPosition());
 
-        int result = 4; //Dice.rollDiceSum();
+        int result = Dice.rollDiceSum();//Det er denne linie du skal ændre for at teste forskellige felter!
+
+
         int newPos = currentPlayer.updatePos(result);
-        //System.out.println("Current player NEW position: "+currentPlayer.getPosition());
         Field f = board.getField(newPos);
         landAndAct(f);
     }
 
     private void landAndAct(Field f){
-        System.out.println("Balance before: "+currentPlayer.getBalance());
+
         String optionMsg = f.onLand(currentPlayer);
         String choice = textUI.getUserInput(optionMsg);
         String msg = f.processChoice(choice, currentPlayer);
-
         textUI.displayMessage(msg);
-        System.out.println("Balance after: "+currentPlayer.getBalance());
 
     }
 
-
     private void createPlayers(ArrayList<String> data){
+
         for (String s : data) {
             String[] values = s.replaceAll(" ","").split(","); //split arrayet så vi får adskildt de to værdier
             int balance;
@@ -90,9 +100,7 @@ public class Game {
                 balance = Integer.parseInt("30000");
             }
             Player p = new Player(values[0], balance); // brug de to værdier til at lave en ny Player instans
-
             players.add(p);                            // tilføj Player instansen til array'et af spillere
-
         }
 
     }

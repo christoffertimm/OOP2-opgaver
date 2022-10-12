@@ -8,7 +8,9 @@ public class BankAccount {
     }
     //change balance, set balance
     public void doTransaction(int amount){
+        //tjek om der er penge til rådighed - return false
         balance += amount;
+
     }
 
     public int getBalance() {

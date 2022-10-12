@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
+/*
+* Todo: tilføj en klasse til at læse kort data  readChanceData() (jvf. Task 2.c)
+ * */
+
 public class FileIO {
 
 

@@ -4,25 +4,22 @@ public class Board {
 
     private Field[] fields = new Field[40];
 
-    Board(String[] data){
-        createFields(data);
+    /*
+    * TODO:
+    *   - udvid konstruktoren (jvf. Task 2.d)
+    *   - tilføj statiske felter (jvf. Task 2.e, 2.f)
+    *   - tilføj statisk metode (jvf. Task 2.g)
+    *
+    * */
+
+    Board(String[] fielddata){
+        createFields(fielddata);
     }
 
     private Field[] createFields(String[] data){
         for(int i = 0; i < fields.length; i++){
             String s = data[i];
             String[] values = s.split(",");
-            /*TODO: Instantiate subclasses of Field based on data. (No field is just a field)
-               1. add a switch-case that looks at the type of the field to be created
-               2. create the subclasses need to instiate based on the type of field. (constructor, attributes and override onString and onLand methods)
-            *
-            *  PSEUDO CODE:
-            *
-            *  Field f = null;
-            *  switch(values[1])
-            *  case "plot": f = new Plot(...)
-            *
-            */
 
             int id =  Integer.parseInt(values[0]);
             String fieldtype = values[1];
@@ -36,20 +33,12 @@ public class Board {
 
             switch (fieldtype) {
                 case "plot": f = new Plot(id, label, cost, income, seriesID);
-
-
-
                 break;
-
                 case "rederi":
                 case "brewery": f = new Business(id, label, cost, income, seriesID);
                     break;
-
-
-
                 case "jail": f = new Jail(id, label, cost);
                        break;
-
                 case "visit": f = new Visit(id, label);
                     break;
                 case "parking": f = new Parking(id, label);
@@ -66,8 +55,6 @@ public class Board {
 
             fields[i] = f;
 
-
-
         }
         return fields;
     }
@@ -78,4 +65,6 @@ public class Board {
         }
         return fields[id];
     }
+
+
 }
