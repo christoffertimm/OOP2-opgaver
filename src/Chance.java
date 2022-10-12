@@ -9,5 +9,9 @@ public class Chance extends Field {
 
         return s;
     }
+    public String onAccep(){
+
+        return "";
+    }
 
 }

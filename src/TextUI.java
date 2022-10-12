@@ -9,7 +9,7 @@ public class TextUI {
     returns the input
 */
     public String getUserInput(String msg){
-        System.out.println(msg);
+       this.displayMessage(msg);
         String input = scan.nextLine();
         return input;
     }
@@ -24,7 +24,7 @@ public class TextUI {
         int i = 0;
         String input="";
         while(i < iterations ){
-            System.out.println(msg);
+           displayMessage(msg);
             input = scan.nextLine();
             if(input.equalsIgnoreCase("Q")){
                 break;
@@ -49,6 +49,14 @@ public class TextUI {
         }
         int choice = scan.nextInt();
         return choice;
+    }
+
+
+
+    public void displayMessage(String msg) {
+        System.out.println("*********************");
+        System.out.println(msg);
+        System.out.println("*********************");
     }
 }
 

@@ -32,7 +32,7 @@ public class Player {
     }
 
     public void buy(int cost){
-
+        //add deed to deedlist
         this.account.doTransaction(-cost);
     }
 
@@ -40,6 +40,10 @@ public class Player {
 
         currentPosition = currentPosition + sum;//52
         if(currentPosition >40){
+
+          //  Field startField = board.getField(1);
+          //  this.receive(startField);
+
             currentPosition -= 40;//currentPosition = currentPosition -40
         }
         return currentPosition;
@@ -47,5 +51,9 @@ public class Player {
 
     public int getPosition() {
         return currentPosition;
+    }
+
+    public void pay(int cost) {
+        this.account.doTransaction(-cost);
     }
 }

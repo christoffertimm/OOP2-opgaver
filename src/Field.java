@@ -35,22 +35,29 @@ public class Field {
         return this.label;
     }
 
-    public void processChoice(String choice, Player p) {
+    public String processChoice(String choice, Player p) {
+        String s;
+
         if(choice.equalsIgnoreCase("J")){
-            onAccept(p);
+            s = onAccept(p);
 
         }else{
-            onReject(p);
+            s = onReject(p);
 
         }
+        return s;
 
     }
-    protected String onAccept(Player p){
-        return "";
+    protected String onAccept(Player p){ return "";
     }
     protected String onReject(Player p){
         return "";
     }
 
-
+    public int getIncome() {
+        return income;
+    }
+    public int getCost(){
+        return cost;
+    }
 }

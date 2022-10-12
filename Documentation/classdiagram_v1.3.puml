@@ -10,6 +10,10 @@ class BankAccount
 class Board
 class Field
 class Dice
+class Parking
+class Start
+class Visit
+class Jail
 
 
 Main : - static Game game
@@ -37,6 +41,7 @@ TextUI : - Scanner scan
 
 
 Player : + Player(String name, int amount)
+Player : + ArrayList<Field> deeds
 Player : - String name
 Player : - int position
 Player : + String getName()
@@ -66,23 +71,35 @@ Field : # String onReject(Player p)
 
 Property : - int seriesID
 Property : - Player owner
-Property : + String onLand()
-Property : - String onAccept()
-Property : - String onReject()
+Property : + String onLand(Player p)
+Property : - String onAccept(Player p)
+Property : - String onReject(Player p)
 
-Plot : + String onLand()
-Plot : - String onAccept()
-Plot : - String onReject()
+Plot : + String onLand(Player p)
+Plot : - String onAccept(Player p)
+Plot : - String onReject(Player pPlayer p)
 
-Business : + String onLand()
-Business : - String onAccept()
-Business : - String onReject()
+Business : + String onLand(Player p)
+Business : - String onAccept(Player p)
+Business : - String onReject(Player p)
 
-Tax : + String onLand()
-Tax : - String onAccept()
-Tax : - String onReject()
+Tax : + String onLand(Player p)
+Tax : - String onAccept(Player p)
+Tax : - String onReject(Player p)
+
+Chance : + Chance(ID, label)
+Chance : + String onLand(Player p)
+Chance : - String onAccept(Player p)
+Chance : - String onReject(Player p)
+
+
 
 Field <|-- Tax
+Field <|-- Jail
+Field <|-- Start
+Field <|-- Parking
+Field <|-- Visit
+Field <|-- Chance
 Field <|-- Property
 Property <|-- Plot
 Property <|-- Business

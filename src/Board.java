@@ -1,3 +1,5 @@
+
+
 public class Board {
 
     private Field[] fields = new Field[40];
@@ -29,22 +31,43 @@ public class Board {
             int income = Integer.parseInt(values[4]);
             int seriesID = Integer.parseInt(values[5]);
 
-            Field f;
+            Field f = null;
+
 
             switch (fieldtype) {
                 case "plot": f = new Plot(id, label, cost, income, seriesID);
 
-                break;
-                case "lykkefelt": f = new Chance(id, label,cost, income);
 
+
+                break;
+
+                case "rederi":
+                case "brewery": f = new Business(id, label, cost, income, seriesID);
                     break;
-                default: f = new Field(id, label, cost, income);
+
+
+
+                case "jail": f = new Jail(id, label, cost);
+                       break;
+
+                case "visit": f = new Visit(id, label);
+                    break;
+                case "parking": f = new Parking(id, label);
+                    break;
+                case "start": f = new Start(id, label, cost, income);
+                    break;
+                case "lykkefelt": f = new Chance(id, label, cost, income);
+                    break;
+                case "tax": f = new Tax(id, label,cost, income);
+                    break;
+
+              //  default: f = new Field(id, label, cost, income);
             }
 
-
-
-
             fields[i] = f;
+
+
+
         }
         return fields;
     }
