@@ -7,7 +7,7 @@ public class Tax extends Field{
     @Override
     public String onLand(Player p) {
         String s = super.onLand(p);
-        s += "Vil du betale fast beløb? Tast J for ja \n (Ellers trækker vi et beløb der svarer til 10 % af dine aktiver)";
+        s += "\n Vil du betale fast beløb? Tast J for ja \n (Ellers trækker vi et beløb der svarer til 10 % af dine aktiver)";
         return s;
     }
 

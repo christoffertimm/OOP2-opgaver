@@ -62,4 +62,7 @@ public class Player {
         this.account.doTransaction(-amount);
         p.account.doTransaction(amount);
     }
+    public void recieve(int amount){
+        this.account.doTransaction(amount);
+    }
 }

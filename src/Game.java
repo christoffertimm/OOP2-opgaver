@@ -71,7 +71,7 @@ public class Game {
                 + "står på felt "
                 +currentPlayer.getPosition());
 
-        int result = Dice.rollDiceSum();//Det er denne linie du skal ændre for at teste forskellige felter!
+        int result = 4;//Dice.rollDiceSum();//Det er denne linie du skal ændre for at teste forskellige felter!
 
 
         int newPos = currentPlayer.updatePos(result);
@@ -84,7 +84,7 @@ public class Game {
         String optionMsg = f.onLand(currentPlayer);
         String choice = textUI.getUserInput(optionMsg);
         String msg = f.processChoice(choice, currentPlayer);
-        textUI.displayMessage(msg);
+        textUI.displayMessage(msg+  "\n STATUS:"+currentPlayer);
 
     }
 

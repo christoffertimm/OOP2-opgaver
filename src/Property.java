@@ -7,14 +7,14 @@ public class Property extends Field{
 
     public Property(int id, String label, int cost, int income, int serieID) {
         super(id, label, cost, income);
-        this.seriesID = seriesID;
+        this.seriesID = serieID;
     }
 
 
     @Override
     public String toString() {
         String s = super.toString();
-        return s+" serieID:"+this.seriesID;
+        return s+" (serieID:"+this.seriesID+")";
     }
     @Override
     public String onLand(Player p){
@@ -47,7 +47,7 @@ public class Property extends Field{
             s = "Du har betalt din husleje";
             p.pay(getIncome(),this.owner);
         }
-        s+= "\n STATUS:"+p;
+
         return s;
     }
     @Override
