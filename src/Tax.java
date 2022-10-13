@@ -22,12 +22,14 @@ public class Tax extends Field{
     @Override
     protected String onReject(Player p) {
 
-        float calcTax = p.getBalance()*0.1f;
-        /*Todo: skriv metoden calculateAssets jvf. Task 1.a, så den kaldes fra linjen herunder, som du indkommenterer når metoden er skrevet*/
-        //calcTax += calculateAssets(Player p);
+        float balance = p.getBalance();
+        /*Todo: indkommenter denne linje når metoden er skrevet */
+       // float assets = calculateAssets(p);
+        float calcTax = balance * 1.0f; // todo:  ændres til denne assignment: balance + assets * 0.1f;
 
         p.pay((int) calcTax);
 
         return p.getName()+" Afviste at betale et fast beløb i skat. Vi har derfor trukket 10 % af "+p.getName()+"'s aktiver";
     }
+   
 }
