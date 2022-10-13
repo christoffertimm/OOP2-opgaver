@@ -27,6 +27,7 @@ public class Tax extends Field{
         //calcTax += calculateAssets(Player p);
 
         p.pay((int) calcTax);
-        return "Vi har trukket 10 % af dine aktiver";
+
+        return p.getName()+" Afviste at betale et fast beløb i skat. Vi har derfor trukket 10 % af "+p.getName()+"'s aktiver";
     }
 }
