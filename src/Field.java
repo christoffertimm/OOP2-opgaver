@@ -1,4 +1,3 @@
-
 public class Field {
     private int ID;
     private String label;
@@ -56,3 +55,6 @@ public class Field {
         return cost;
     }
 }
+
+
+
