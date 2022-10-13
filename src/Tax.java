@@ -23,13 +23,13 @@ public class Tax extends Field{
     protected String onReject(Player p) {
 
         float balance = p.getBalance();
-        /*Todo: indkommenter denne linje når metoden er skrevet */
+        /*Todo: indkommenter følgende linje når metoden er skrevet: */
        // float assets = calculateAssets(p);
-        float calcTax = balance * 1.0f; // todo:  ændres til denne assignment: balance + assets * 0.1f;
+        float calcTax = balance * 1.0f; // todo:  ændres til denne assignment: balance + assets * 0.1f; (Når der er kommet en værdi i 'assets')
 
         p.pay((int) calcTax);
 
         return p.getName()+" Afviste at betale et fast beløb i skat. Vi har derfor trukket 10 % af "+p.getName()+"'s aktiver";
     }
-   
+
 }
