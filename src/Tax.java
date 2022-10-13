@@ -17,10 +17,15 @@ public class Tax extends Field{
         return p.getName()+" har nu betalt et fast beløb";
     }
 
+
+
     @Override
     protected String onReject(Player p) {
-        //
+
         float calcTax = p.getBalance()*0.1f;
+        /*Todo: skriv metoden calculateAssets jvf. Task 1.a, så den kaldes fra linjen herunder*/
+        // calcTax += calculateAssets();
+        
         p.pay((int) calcTax);
         return "Vi har trukket 10 % af dine aktiver";
     }

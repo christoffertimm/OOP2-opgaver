@@ -1,9 +1,4 @@
-/* TODO: Make this class a super class by...
-    1. removing attributes that are not common to ALL field types (cost, income, seriesID, owner)
-    2. adding onLand, onReject and processResonse methods
-*
-*
-* */
+
 public class Field {
     private int ID;
     private String label;
