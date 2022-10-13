@@ -59,6 +59,10 @@ public class FileIO {
         }
         return values;
     }
+    public String[] readChanceData()
+    {
+        
+    }
 
 
 }
